@@ -1,9 +1,11 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { MapControls } from 'three/examples/jsm/controls/MapControls.js'
 import { SparkRenderer, SplatMesh } from '@sparkjsdev/spark'
 import { Callout } from '@/components/Callout/Callout'
 import { getHotspot, type Hotspot } from '@/data/hotspots'
+import { DebugPanel } from './DebugPanel'
+import { createDebugTools, type DebugTools } from './debugTools'
 import styles from './SparkViewer.module.scss'
 
 /**
@@ -18,6 +20,8 @@ type Navigation = Hotspot['navigation']
 type ViewerApi = {
   focus: (nav: Navigation, animate: boolean) => void
   setActive: (active: boolean) => void
+  /** Solo existe con `?debug` en la URL. */
+  debug?: DebugTools
 }
 
 type SparkViewerProps = {
@@ -44,6 +48,11 @@ export default function SparkViewer({
   const anchors = useRef(new Map<string, HTMLDivElement>())
   const apiRef = useRef<ViewerApi | null>(null)
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading')
+
+  // Modo debug: se lee UNA vez al montar (no en cada render), así sigue activo aunque
+  // la app navegue a otra ruta y `?debug` desaparezca de la URL.
+  const [debug] = useState(() => new URLSearchParams(window.location.search).has('debug'))
+  const getDebugSnapshot = useCallback(() => apiRef.current?.debug?.getSnapshot() ?? null, [])
 
   // El loop de render lee siempre los valores más recientes desde refs.
   const hotspotsRef = useRef(hotspots)
@@ -106,6 +115,11 @@ export default function SparkViewer({
       const splat = new SplatMesh({ url })
       if (!Y_DOWN) splat.quaternion.set(1, 0, 0, 0)
       scene.add(splat)
+
+      // Cubo + gizmo para leer coordenadas (solo con ?debug).
+      const debugTools = debug
+        ? createDebugTools({ scene, camera, domElement: renderer.domElement, controls })
+        : null
 
       // --- Vuelo de cámara ---
       type Tween = {
@@ -190,7 +204,7 @@ export default function SparkViewer({
         }
       }
 
-      apiRef.current = { focus, setActive }
+      apiRef.current = { focus, setActive, debug: debugTools ?? undefined }
       setActive(activeRef.current)
 
       const ready = splat.initialized
@@ -222,6 +236,7 @@ export default function SparkViewer({
         ro.disconnect()
         renderer.setAnimationLoop(null)
         controls.removeEventListener('start', cancelTween)
+        debugTools?.dispose()
         controls.dispose()
         scene.remove(splat)
         // Esperar a que termine la carga antes de liberar el splat
@@ -248,7 +263,7 @@ export default function SparkViewer({
       waitForSize.disconnect()
       cleanup?.()
     }
-  }, [url])
+  }, [url, debug])
 
   return (
     <div className={styles.viewer} ref={containerRef}>
@@ -275,6 +290,8 @@ export default function SparkViewer({
           </div>
         ))}
       </div>
+
+      {debug && <DebugPanel getSnapshot={getDebugSnapshot} />}
 
       {status !== 'ready' && (
         <div className={styles.status} role="status">

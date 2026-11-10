@@ -30,7 +30,7 @@ export default function DesktopLayout() {
 
   const handleHotspotClick = (hotspot: Hotspot) => {
     if (hotspot.category === 'building') goTo('pisos')
-    else select(hotspot.id)
+    else setSelectedHotspotId(hotspot.id)
   }
 
   // Al elegir una categoría o buscar, mostramos la lista de resultados.

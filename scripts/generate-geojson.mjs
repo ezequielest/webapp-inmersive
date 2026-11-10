@@ -17,8 +17,7 @@ const features = hotspots.map((h) => ({
   geometry: {
     type: 'Point',
     // El edificio queda exactamente en la coordenada real.
-    //coordinates: h.category === 'building' ? ITAIM_LNG_LAT : splatToLngLat(h.navigation.initialPoint),
-    coordinates: [hotspots[0],hotspots[1]]
+    coordinates: h.category === 'building' ? ITAIM_LNG_LAT : splatToLngLat(h.navigation.initialPoint),
   },
 }))
 
