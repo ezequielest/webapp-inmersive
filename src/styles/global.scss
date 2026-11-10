@@ -1,0 +1,103 @@
+// Tokens de diseño (CSS custom properties) + reset global.
+// Cada componente consume estos tokens desde su propio .module.scss.
+
+:root {
+  color-scheme: dark;
+
+  // Colores base
+  --bg: #070b14;
+  --surface: #0e1524;
+  --surface-2: #151f33;
+  --surface-glass: rgba(14, 21, 36, 0.78);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f3f6fb;
+  --text-muted: #8b97ad;
+  --primary: #2f6bff;
+  --primary-soft: rgba(47, 107, 255, 0.18);
+
+  // Categorías de POI
+  --c-closeness: #38bdf8;
+  --c-building: #2f6bff;
+  --c-cafes: #f59e0b;
+  --c-restaurants: #f97316;
+  --c-superMarket: #22c55e;
+  --c-pharmacy: #ef4444;
+  --c-serviceStation: #6366f1;
+  --c-bank: #a855f7;
+
+  // Radios
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  // Espaciado
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+
+  // Layout
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --tabbar-h: 64px;
+
+  // Movimiento
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #000;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Contenedor de la app: mobile first; en desktop se muestra como un "teléfono".
+.app {
+  position: relative;
+  height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--bg);
+}

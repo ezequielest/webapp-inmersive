@@ -1,0 +1,53 @@
+.viewer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg);
+
+  > canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+}
+
+// Capa de callouts: no captura gestos salvo en los propios hotspots.
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden; // lo muestra el loop de render cuando ya está posicionado
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.status {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  color: var(--text-muted);
+  font-size: 14px;
+  text-align: center;
+  pointer-events: none;
+
+  code {
+    color: var(--text);
+  }
+
+  small {
+    font-size: 12px;
+  }
+}

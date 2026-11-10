@@ -1,0 +1,209 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "centro",
+        "label": "Centro",
+        "address": "",
+        "category": "closeness",
+        "categoryLabel": "Cercanía"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.55963433063154,
+          -38.01064854053034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "itaim",
+        "label": "Itaim II",
+        "address": "Quintana e Independencia",
+        "category": "building",
+        "categoryLabel": "Edificio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.56533516443009,
+          -38.012445162880326
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "vea",
+        "label": "Vea",
+        "address": "Quintana e Independencia",
+        "category": "superMarket",
+        "categoryLabel": "Supermercados"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.565631607787616,
+          -38.01293923402657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Starbucks",
+        "label": "Starbucks",
+        "address": "",
+        "category": "cafes",
+        "categoryLabel": "Cafés"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.560873691899346,
+          -38.01293923402657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "burgerKing",
+        "label": "Burger King",
+        "address": "",
+        "category": "restaurants",
+        "categoryLabel": "Restaurantes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.560873691899346,
+          -38.01293923402657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "toledo",
+        "label": "Toledo",
+        "address": "Av. Independencia 3445",
+        "category": "superMarket",
+        "categoryLabel": "Supermercados"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.56274014488499,
+          -38.01293923402657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "palkin",
+        "label": "Palkin",
+        "address": "Av. Independencia 3501",
+        "category": "pharmacy",
+        "categoryLabel": "Farmacias"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.565020478404406,
+          -38.01293923402657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ypf",
+        "label": "YPF",
+        "address": "Independencia y Quintana",
+        "category": "serviceStation",
+        "categoryLabel": "Estaciones de servicio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.565020478404406,
+          -38.01293923402657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shell",
+        "label": "Shell",
+        "address": "",
+        "category": "serviceStation",
+        "categoryLabel": "Estaciones de servicio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.56233766601881,
+          -38.01293923402657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "feria",
+        "label": "Paseo de compras",
+        "address": "",
+        "category": "superMarket",
+        "categoryLabel": "Supermercados"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.56414597049971,
+          -38.01293923402657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bna",
+        "label": "BNA",
+        "address": "",
+        "category": "bank",
+        "categoryLabel": "Bancos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.56462940120583,
+          -38.01293923402657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "provincia",
+        "label": "Provincia",
+        "address": "Av Independencia 3205",
+        "category": "bank",
+        "categoryLabel": "Bancos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.5614551769468,
+          -38.01293923402657
+        ]
+      }
+    }
+  ]
+}

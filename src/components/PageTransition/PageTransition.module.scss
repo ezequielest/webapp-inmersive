@@ -1,0 +1,14 @@
+.page {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  overflow: hidden;
+  will-change: transform;
+  box-shadow: -12px 0 32px rgba(0, 0, 0, 0.35);
+}
+
+.transparent {
+  background: transparent;
+  box-shadow: none;
+  pointer-events: none;
+}

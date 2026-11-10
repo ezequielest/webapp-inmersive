@@ -1,0 +1,15 @@
+# Se copia a dist/ en cada build. Solo aplica si el servidor es Apache (hosting compartido típico).
+# Sin esto, recargar la página en /closer-demo/pisos da 404.
+
+# Los workers de MapLibre son .mjs: tienen que servirse como JavaScript.
+AddType text/javascript .mjs
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /closer-demo/
+
+  # Si el archivo o carpeta existe, se sirve tal cual; si no, lo resuelve la app.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /closer-demo/index.html [L]
+</IfModule>

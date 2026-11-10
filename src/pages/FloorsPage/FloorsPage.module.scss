@@ -1,0 +1,30 @@
+@use 'mixins' as *;
+
+.page {
+  position: absolute;
+  inset: 0;
+}
+
+.list {
+  @include scroll-y;
+  position: absolute;
+  inset: calc(var(--safe-top) + 72px) 0 120px 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0 var(--space-4);
+}
+
+.footer {
+  @include glass;
+  position: absolute;
+  inset: auto var(--space-4) calc(var(--safe-bottom) + var(--space-4)) var(--space-4);
+  z-index: 10;
+  border-radius: var(--radius-md);
+
+  // El ListItem de la tarjeta ya tiene su propio fondo; lo dejamos transparente acá.
+  > * {
+    background: transparent;
+    border: 0;
+  }
+}

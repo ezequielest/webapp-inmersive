@@ -1,0 +1,83 @@
+@use 'mixins' as *;
+
+.page {
+  position: absolute;
+  inset: 0;
+}
+
+.hero {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 60%;
+}
+
+.panel {
+  @include glass;
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-4) calc(var(--safe-bottom) + var(--space-4));
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border-bottom: 0;
+}
+
+.selected {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.selectedText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  strong {
+    font-size: 17px;
+  }
+
+  span {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.carousel {
+  @include scroll-y;
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.photo {
+  @include press;
+  position: relative;
+  width: 140px;
+  height: 92px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+}
+
+.photoActive {
+  border-color: var(--primary);
+}
+
+.photoLabel {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 16px 10px 8px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}

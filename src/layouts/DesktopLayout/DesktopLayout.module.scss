@@ -1,0 +1,25 @@
+.layout {
+  display: grid;
+  grid-template-columns: 264px minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) 176px;
+  grid-template-areas:
+    'sidebar stage'
+    'dock dock';
+  height: 100dvh;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.stage {
+  position: relative;
+  grid-area: stage;
+  overflow: hidden;
+}
+
+.dock {
+  grid-area: dock;
+}

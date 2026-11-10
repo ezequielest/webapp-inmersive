@@ -1,0 +1,47 @@
+.view {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  // Cada visor tiene su propio contexto de apilado: así los callouts del splat
+  // (z-index interno) nunca se pintan por encima del mapa.
+  isolation: isolate;
+}
+
+// Se oculta sin desmontar para conservar el tamaño y el contexto WebGL.
+.hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.switch {
+  position: absolute;
+  z-index: 4;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-pill);
+}
+
+.top {
+  top: calc(var(--safe-top) + var(--space-3));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottom {
+  bottom: var(--space-4);
+  left: var(--space-4);
+}

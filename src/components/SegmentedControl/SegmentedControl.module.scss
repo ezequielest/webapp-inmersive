@@ -1,0 +1,32 @@
+.control {
+  display: flex;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+}
+
+.option {
+  flex: 1;
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  font-weight: 600;
+  transition: background-color 0.25s var(--ease-out), color 0.25s;
+}
+
+.md .option {
+  height: 40px;
+  font-size: 14px;
+}
+
+.sm .option {
+  height: 30px;
+  padding: 0 var(--space-4);
+  font-size: 13px;
+}
+
+.active {
+  background: var(--primary);
+  color: #fff;
+}

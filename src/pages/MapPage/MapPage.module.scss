@@ -1,0 +1,80 @@
+@use 'mixins' as *;
+
+// La página es solo UI: deja pasar los gestos al visor (splat / mapa) que está debajo.
+.page {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  > * {
+    pointer-events: auto;
+  }
+}
+
+.topActions {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  padding: calc(var(--safe-top) + var(--space-3)) var(--space-4);
+  pointer-events: none;
+
+  > * {
+    pointer-events: auto;
+  }
+}
+
+.topRight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.chips {
+  display: flex;
+  gap: var(--space-2);
+  padding-bottom: var(--space-3);
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.projectCard {
+  @include glass;
+  @include press;
+  position: absolute;
+  inset: auto var(--space-4) calc(var(--tabbar-h) + var(--safe-bottom) + var(--space-3)) var(--space-4);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  text-align: left;
+
+  > svg {
+    width: 20px;
+    height: 20px;
+    color: var(--text-muted);
+  }
+}
+
+.projectText {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2px;
+
+  strong {
+    font-size: 16px;
+  }
+
+  span {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+}

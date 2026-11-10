@@ -1,0 +1,28 @@
+.topBar {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: calc(var(--safe-top) + var(--space-3)) var(--space-4) var(--space-3);
+}
+
+.back {
+  background: transparent;
+  border-color: transparent;
+  backdrop-filter: none;
+  margin-left: calc(var(--space-2) * -1);
+}
+
+.title {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}

@@ -1,0 +1,101 @@
+@use 'mixins' as *;
+
+.view {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 40% 40%, #162340 0%, var(--bg) 70%);
+}
+
+.stage {
+  position: absolute;
+  inset: 0 64px 0 0;
+  display: grid;
+  place-items: center;
+  perspective: 1100px;
+}
+
+.tower {
+  --w: 120px;
+  --d: 90px;
+  --fh: 26px;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  transform: translateY(-6%) rotateX(-14deg) rotateY(-32deg);
+}
+
+.floor {
+  position: relative;
+  width: var(--w);
+  height: var(--fh);
+  transform-style: preserve-3d;
+}
+
+.face {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  backface-visibility: hidden;
+  background:
+    repeating-linear-gradient(90deg, rgba(150, 190, 255, 0.35) 0 8px, transparent 8px 16px),
+    #b9c4d6;
+  background-blend-mode: normal;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s, filter 0.3s;
+}
+
+.front {
+  left: 0;
+  width: var(--w);
+  transform: translateZ(calc(var(--d) / 2));
+}
+
+.sideRight {
+  left: calc(var(--w) - var(--d) / 2);
+  width: var(--d);
+  filter: brightness(0.7);
+  transform: rotateY(90deg) translateZ(calc(var(--w) / 2));
+  transform-origin: center;
+}
+
+.sideLeft {
+  left: calc(var(--d) / -2);
+  width: var(--d);
+  filter: brightness(0.55);
+  transform: rotateY(-90deg) translateZ(calc(var(--w) / 2));
+  transform-origin: center;
+}
+
+.selected .face {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0 8px, transparent 8px 16px),
+    var(--primary);
+  filter: drop-shadow(0 0 10px rgba(47, 107, 255, 0.9));
+}
+
+.selector {
+  position: absolute;
+  top: 50%;
+  right: var(--space-4);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pill {
+  @include press;
+  display: block;
+  width: 48px;
+  height: 26px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pillActive {
+  background: var(--primary);
+  color: #fff;
+}

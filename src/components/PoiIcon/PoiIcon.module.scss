@@ -1,0 +1,50 @@
+.poiIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.sm {
+  width: 28px;
+  height: 28px;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.md {
+  width: 44px;
+  height: 44px;
+  border: 0;
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.lg {
+  width: 40px;
+  height: 40px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// Los colores viven en styles/global.scss (--c-<categoría>)
+.closeness { background: var(--c-closeness); }
+.building { background: var(--c-building); }
+.superMarket { background: var(--c-superMarket); }
+.cafes { background: var(--c-cafes); }
+.restaurants { background: var(--c-restaurants); }
+.pharmacy { background: var(--c-pharmacy); }
+.serviceStation { background: var(--c-serviceStation); }
+.bank { background: var(--c-bank); }

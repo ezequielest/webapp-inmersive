@@ -1,0 +1,22 @@
+@use 'mixins' as *;
+
+.iconButton {
+  @include glass;
+  @include press;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.active {
+  background: var(--primary);
+  border-color: transparent;
+  color: #fff;
+}
