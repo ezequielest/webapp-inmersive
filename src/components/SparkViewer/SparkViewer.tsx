@@ -131,6 +131,14 @@ export default function SparkViewer({
         toTarget: THREE.Vector3
       }
       let tween: Tween | null = null
+      const initialPoint = {
+        initialPoint: [0,0, 0],
+        positionCamera: [-3.351, -2.81, 3.644],
+        target: [0,0,0],
+        diration: 2500,
+        latLong: [null,null]
+
+    }
 
       const focus = (nav: Navigation, animate: boolean) => {
         const toPos = new THREE.Vector3(...nav.positionCamera)
@@ -213,8 +221,12 @@ export default function SparkViewer({
           if (cancelled) return
           console.log('splat listo', splat.numSplats)
           setStatus('ready')
-          const initial = selectedRef.current ? getHotspot(selectedRef.current) : undefined
-          if (initial) focus(initial.navigation, false)
+          const initial = selectedRef.current ? getHotspot(selectedRef.current) : undefined 
+          if (initial) {
+            focus(initialPoint, false)
+            focus(initial.navigation, true)
+          } 
+            
         })
         .catch((err: unknown) => {
           if (cancelled) return
