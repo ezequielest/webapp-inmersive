@@ -76,10 +76,10 @@ export const hotspots: Hotspot[] = [
     id: 'itaim',
     info: { label: 'Itaim II', address: 'Quintana e Independencia' },
     navigation: {
-      initialPoint: [-0.528, -0.404, 0.518],
+      initialPoint: [0, -0.246, -0.004],
       positionCamera: [-0.426, -0.44, 0.366],
       latLong: [-38.01244604983709, -57.56531571638238],
-      target: [-0.027, 0, -0.051],
+      target: [0, -0.246, -0.004],
       duration: 2500,
     },
     category: 'building',
