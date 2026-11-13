@@ -4,12 +4,25 @@
   flex-shrink: 0;
   color: rgba(255, 255, 255, 0.85);
   overflow: hidden;
+  position: relative;
 
   svg {
     width: 40%;
     height: 40%;
     stroke-width: 1.5;
   }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+}
+
+img {
+  object-fit: cover;
 }
 
 .sm {
@@ -50,4 +63,20 @@
 
 .room {
   background: radial-gradient(circle at 30% 20%, #6b5a45, #2c2419 70%);
+}
+
+.sum {
+  background: radial-gradient(circle at 30% 20%, #c44444, #d7272a 70%);
+}
+
+.cowork {
+  background: radial-gradient(circle at 30% 20%, #867d71, #6b6763 70%);
+}
+
+.gym {
+  background: radial-gradient(circle at 30% 20%, #63bb16, #06831a 70%);
+}
+
+.quincho {
+  background: radial-gradient(circle at 30% 20%, #c0cf1d, #7d8f03 70%);
 }

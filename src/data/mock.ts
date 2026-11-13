@@ -5,6 +5,7 @@ export type Tipologia = {
   id: string
   name: string
   fromArea: number
+  rooms: number
 }
 
 export type Unit = {
@@ -37,9 +38,9 @@ export const building = {
 }
 
 export const tipologias: Tipologia[] = [
-  { id: '2amb', name: '2 ambientes', fromArea: 45 },
-  { id: '3amb', name: '3 ambientes', fromArea: 70 },
-  { id: '4amb', name: '4 ambientes', fromArea: 100 },
+  { id: '2amb', name: '2 ambientes', fromArea: 45, rooms: 2},
+  { id: '3amb', name: '3 ambientes', fromArea: 70, rooms: 3 },
+  { id: '4amb', name: '4 ambientes', fromArea: 100, rooms: 4 },
 ]
 
 const specsByTipologia: Record<string, Omit<Unit, 'id' | 'floor' | 'tipologiaId'>> = {
@@ -61,9 +62,10 @@ export const units: Unit[] = Array.from({ length: building.floors }, (_, i) => i
 
 export const amenities: Amenity[] = [
   { id: 'piscina', name: 'Piscina', place: 'Rooftop', description: 'Disfrutá de la piscina con vista panorámica de la ciudad.', kind: 'pool' },
-  { id: 'sum', name: 'SUM', place: 'Planta baja', description: 'Salón de usos múltiples con cocina y parrilla.', kind: 'room' },
-  { id: 'gym', name: 'Gimnasio', place: 'Piso 1', description: 'Equipado con cardio, pesas y zona funcional.', kind: 'room' },
-  { id: 'cowork', name: 'Coworking', place: 'Piso 2', description: 'Espacio de trabajo compartido con salas de reunión.', kind: 'room' },
+  { id: 'sum', name: 'SUM', place: 'Planta baja', description: 'Salón de usos múltiples con cocina y parrilla.', kind: 'sum' },
+  { id: 'gym', name: 'Gimnasio', place: 'Piso 1', description: 'Equipado con cardio, pesas y zona funcional.', kind: 'gym' },
+  { id: 'cowork', name: 'Coworking', place: 'Piso 2', description: 'Espacio de trabajo compartido con salas de reunión.', kind: 'cowork' },
+  { id: 'quincho', name: 'Quincho', place: 'Piso 7', description: 'Quincho con parrilla.', kind: 'quincho' },
 ]
 
 export const getTipologia = (id: string) => tipologias.find((t) => t.id === id)

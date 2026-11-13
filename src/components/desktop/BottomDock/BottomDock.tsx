@@ -1,7 +1,6 @@
 import { ArrowRight} from 'lucide-react'
 import clsx from 'clsx'
 import { PoiIcon } from '@/components/PoiIcon/PoiIcon'
-import { Thumb } from '@/components/Thumb/Thumb'
 import { categoryLabels, type Hotspot } from '@/data/hotspots'
 import { building } from '@/data/mock'
 import type { Section } from '@/components/desktop/types'
@@ -33,11 +32,13 @@ export function BottomDock({
 }: BottomDockProps) {
   // 'poi' se considera parte de "Entorno".
   //const activeMode = section === 'poi' ? 'general' : section
+  const imgURL = `${import.meta.env.BASE_URL}itaim/img/1.jpg`;
 
   return (
     <footer className={clsx(styles.dock, className)}>
       <section className={clsx(styles.card, styles.summary)}>
-        <Thumb kind="building" size="md" className={styles.summaryThumb} />
+        {/*<Thumb kind="building" size="md" className={styles.summaryThumb} />*/}
+        <img className={styles.imageBuilding} src={imgURL} />
         <div className={styles.summaryText}>
           <h3>{building.name}</h3>
           <p className={styles.address}>{building.address}</p>

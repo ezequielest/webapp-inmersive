@@ -58,7 +58,8 @@ export function BuildingPanel({ tab, onTabChange, floor, onFloorChange }: Buildi
   return (
     <div className={styles.panel}>
       <header className={styles.header}>
-        <Thumb kind="building" size="md" />
+       <Thumb kind="building" image={`${import.meta.env.BASE_URL}itaim/img/1.jpg`} size="md" />
+
         <div className={styles.headerText}>
           <h2>{building.name}</h2>
           <p>{building.address}</p>
@@ -137,7 +138,7 @@ export function BuildingPanel({ tab, onTabChange, floor, onFloorChange }: Buildi
                     <li key={t.id}>
                       <ListItem
                         variant="card"
-                        leading={<Thumb kind="plan" size="sm" />}
+                        leading={<Thumb kind="plan" image={`${import.meta.env.BASE_URL}itaim/img/room.png`} size="sm" />}
                         title={t.name}
                         subtitle={`Desde ${t.fromArea} m²`}
                         onClick={() => {

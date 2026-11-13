@@ -36,7 +36,7 @@ export default function UnitsPage() {
       />
 
       <div className={styles.hero}>
-        <Thumb kind="plan" size="hero" />
+        <Thumb kind="plan" image={`${import.meta.env.BASE_URL}itaim/img/room.jpg`}  size="hero" />
       </div>
 
       <section className={styles.panel}>
@@ -48,7 +48,7 @@ export default function UnitsPage() {
                 <li key={t.id}>
                   <ListItem
                     variant="card"
-                    leading={<Thumb kind="plan" size="sm" />}
+                    leading={<Thumb kind="plan" image={`${import.meta.env.BASE_URL}itaim/img/room.jpg`}  size="sm" />}
                     title={t.name}
                     subtitle={`Desde ${t.fromArea} m²`}
                     onClick={() => {
